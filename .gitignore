@@ -1,0 +1,7 @@
+.pytest_cache/
+controller/__pycache__
+tests/__pycache__
+.venv/
+test_sandbox/
+scratch.py
+logs/
