@@ -23,7 +23,7 @@ def test_write_outside_the_sandbox_refused(tmp_path):
     box=os.path.join(tmp_path,"box")
     outside=os.path.join(tmp_path,"outside.txt")
 
-    r = write_text_file(outside,"Hello i am your agent",sandbox=box)
+    r = write_text_file(outside,"Hello i am your agent",sandbox=Path(box))
     assert r["ok"] is False
     assert os.path.exists(outside) is False
 
@@ -31,6 +31,6 @@ def test_dotdot_escape_is_refused(tmp_path):
     box=os.path.join(tmp_path,"box")
     sneaky=os.path.join(box,"..","outside.txt")
 
-    r = write_text_file(sneaky,"nope",sandbox=box)
+    r = write_text_file(sneaky,"nope",sandbox=Path(box))
     assert r["ok"] is False
     assert os.path.exists(os.path.join(tmp_path,"outside.txt")) is False
