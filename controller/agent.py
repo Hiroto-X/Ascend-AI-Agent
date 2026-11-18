@@ -2,6 +2,7 @@ import ollama
 from controller.clipboard import get_clipboard,set_clipboard
 from controller.file import check_path,write_text_file,read_text_file
 from controller.processes import list_processes,is_running
+from controller.open_close_program import open_program
 
 available_function = {
     'get_clipboard': get_clipboard,
@@ -10,7 +11,8 @@ available_function = {
     'write_text_file': write_text_file,
     'read_text_file': read_text_file,
     'list_processes': list_processes,
-    'is_running': is_running
+    'is_running': is_running,
+    'open_program': open_program
 }
 
 tools=list(available_function.values())
